@@ -1,4 +1,4 @@
-# FishCast - Fishing App
+# FTS - Fishing App
 
 A React-based fishing application with features for social interaction, catch logging, spot finding, and tournament participation.
 
