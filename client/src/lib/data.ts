@@ -145,7 +145,7 @@ export const spots = [
     distance: "12",
     species: ["Bass", "Trout", "Pike"],
     catches: 28,
-    image: "/src/assets/lakemichigan.jpg",
+    image: "/assets/lakemichigan.jpg",
   },
   {
     id: 2,
@@ -172,7 +172,7 @@ export const spots = [
     distance: "18",
     species: ["Bluegill", "Crappie"],
     catches: 8,
-    image: "/src/assets/millerspond.jpg",
+    image: "/assets/millerspond.jpg",
   },
 ];
 

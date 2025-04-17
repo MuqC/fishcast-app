@@ -20,7 +20,7 @@ export default function SpotCatchesPage() {
       weight: "4.5",
       length: "19.5",
       date: "June 12, 2023",
-      image: "/src/assets/bass1.jpeg",
+      image: "/assets/bass1.jpeg",
       user: {
         name: "Mike Richards",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
@@ -32,7 +32,7 @@ export default function SpotCatchesPage() {
       weight: "3.2",
       length: "17",
       date: "June 10, 2023",
-      image: "/src/assets/bass1.jpeg",
+      image: "/assets/bass1.jpeg",
       user: {
         name: "Sarah Thompson",
         avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
@@ -44,7 +44,7 @@ export default function SpotCatchesPage() {
       weight: "5.1",
       length: "20.5",
       date: "June 8, 2023",
-      image: "/src/assets/bass1.jpeg",
+      image: "/assets/bass1.jpeg",
       user: {
         name: "David Carter",
         avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",

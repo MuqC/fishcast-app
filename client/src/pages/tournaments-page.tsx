@@ -35,9 +35,13 @@ export default function TournamentsPage() {
       
       <h3 className="text-sm font-semibold mb-3 text-neutral-500">Available Tournaments</h3>
       
-      <div className="grid grid-cols-2 gap-3">
+      <div className="space-y-3">
         {tournaments.map((tournament) => (
-          <Card key={tournament.id} className="overflow-hidden scale-in">
+          <Card 
+            key={tournament.id} 
+            className="overflow-hidden scale-in cursor-pointer hover:border-primary transition-colors"
+            onClick={() => expandTournaments()}
+          >
             <div className="relative">
               <Image 
                 src={tournament.image} 
@@ -75,35 +79,36 @@ export default function TournamentsPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </button>
-        <h2 className="text-lg font-semibold text-neutral-500">Bass Masters Cup Leagues</h2>
+        <h2 className="text-lg font-semibold text-neutral-500">Tournament Leagues</h2>
       </div>
       
-      <div className="grid grid-cols-1 gap-3">
+      <div className="grid grid-cols-1 gap-4">
         {leagues.map((league) => (
           <Card 
             key={league.id} 
             className="p-4 cursor-pointer hover:border-primary transition-colors scale-in"
             onClick={() => selectLeague(league.name)}
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-start mb-4">
               <div>
-                <h3 className="font-medium">{league.name}</h3>
-                <p className="text-xs text-neutral-500">{league.description}</p>
+                <h3 className="font-medium text-lg">{league.name}</h3>
+                <p className="text-sm text-neutral-500">{league.description}</p>
               </div>
               <div className={`${league.statusClass} rounded-full px-3 py-1 text-xs font-medium`}>
                 {league.status}
               </div>
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-              <div className="bg-neutral-100 rounded p-2">
+            
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-neutral-100 rounded-lg p-3">
                 <p className="text-xs text-neutral-500">Participants</p>
                 <p className="font-medium">{league.participants}</p>
               </div>
-              <div className="bg-neutral-100 rounded p-2">
+              <div className="bg-neutral-100 rounded-lg p-3">
                 <p className="text-xs text-neutral-500">Prize Pool</p>
                 <p className="font-medium">{league.prizePool}</p>
               </div>
-              <div className="bg-neutral-100 rounded p-2">
+              <div className="bg-neutral-100 rounded-lg p-3">
                 <p className="text-xs text-neutral-500">Top Species</p>
                 <p className="font-medium">{league.topSpecies}</p>
               </div>
@@ -127,18 +132,18 @@ export default function TournamentsPage() {
         </h2>
       </div>
       
-      <Card className="mb-4">
-        <CardContent className="grid grid-cols-3 gap-4 p-4">
+      <Card className="mb-6">
+        <CardContent className="grid grid-cols-3 gap-4 p-6">
           {/* Second Place */}
           <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-neutral-100 mx-auto mb-2 overflow-hidden">
-              <img 
+            <div className="w-20 h-20 rounded-full bg-neutral-100 mx-auto mb-3 overflow-hidden">
+              <Image 
                 src={topAnglers[1].image} 
                 alt="Second place" 
                 className="w-full h-full object-cover rounded-full border-2 border-orange-500"
               />
             </div>
-            <div className="w-6 h-6 rounded-full bg-orange-500 text-white mx-auto mb-2 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-orange-500 text-white mx-auto mb-2 flex items-center justify-center">
               <span className="text-sm font-semibold">2</span>
             </div>
             <p className="text-sm font-medium">{topAnglers[1].name}</p>
@@ -146,15 +151,15 @@ export default function TournamentsPage() {
           </div>
           
           {/* First Place */}
-          <div className="text-center">
-            <div className="w-20 h-20 rounded-full bg-neutral-100 mx-auto mb-2 overflow-hidden">
-              <img 
+          <div className="text-center -mt-4">
+            <div className="w-24 h-24 rounded-full bg-neutral-100 mx-auto mb-3 overflow-hidden">
+              <Image 
                 src={topAnglers[0].image} 
                 alt="First place" 
-                className="w-full h-full object-cover rounded-full border-3 border-primary"
+                className="w-full h-full object-cover rounded-full border-4 border-primary"
               />
             </div>
-            <div className="w-6 h-6 rounded-full bg-primary text-white mx-auto mb-2 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-primary text-white mx-auto mb-2 flex items-center justify-center">
               <span className="text-sm font-semibold">1</span>
             </div>
             <p className="text-sm font-medium">{topAnglers[0].name}</p>
@@ -163,14 +168,14 @@ export default function TournamentsPage() {
           
           {/* Third Place */}
           <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-neutral-100 mx-auto mb-2 overflow-hidden">
-              <img 
+            <div className="w-20 h-20 rounded-full bg-neutral-100 mx-auto mb-3 overflow-hidden">
+              <Image 
                 src={topAnglers[2].image}
                 alt="Third place" 
                 className="w-full h-full object-cover rounded-full border-2 border-green-700"
               />
             </div>
-            <div className="w-6 h-6 rounded-full bg-green-700 text-white mx-auto mb-2 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-green-700 text-white mx-auto mb-2 flex items-center justify-center">
               <span className="text-sm font-semibold">3</span>
             </div>
             <p className="text-sm font-medium">{topAnglers[2].name}</p>
@@ -180,10 +185,10 @@ export default function TournamentsPage() {
       </Card>
       
       <Card>
-        <div className="p-3 border-b border-neutral-200 flex justify-between items-center">
+        <div className="p-4 border-b border-neutral-200 flex justify-between items-center">
           <p className="text-sm font-medium">Tournament Rankings</p>
           <Select defaultValue="week3">
-            <SelectTrigger className="h-7 text-xs bg-neutral-100 border border-neutral-200 rounded">
+            <SelectTrigger className="h-8 text-xs bg-neutral-100 border border-neutral-200 rounded">
               <SelectValue placeholder="Week 3 (Current)" />
             </SelectTrigger>
             <SelectContent>
@@ -196,47 +201,37 @@ export default function TournamentsPage() {
         
         <div className="divide-y divide-neutral-200">
           {leaderboardEntries.map((entry) => (
-            <div key={entry.position} className="flex items-center p-3 hover:bg-neutral-50 transition-colors">
-              <div className="w-8 text-center mr-2">
+            <div key={entry.position} className="flex items-center p-4 hover:bg-neutral-50 transition-colors">
+              <div className="w-8 text-center mr-3">
                 <span className="font-semibold text-sm">{entry.position}</span>
               </div>
-              <div className="w-8 h-8 rounded-full bg-neutral-200 mr-2 overflow-hidden">
-                <img src={entry.image} alt={entry.name} className="w-full h-full object-cover" />
+              <div className="w-10 h-10 rounded-full bg-neutral-200 mr-3 overflow-hidden">
+                <Image src={entry.image} alt={entry.name} className="w-full h-full object-cover" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">{entry.name}</p>
                 <p className="text-xs text-neutral-500">{entry.catches} catches • {entry.weight} lbs</p>
               </div>
-              <div className="text-xs">
-                {entry.change.direction === 'up' && (
-                  <span className="text-green-500 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                    {entry.change.value}
-                  </span>
+              <div className="flex items-center gap-1">
+                {entry.change.direction === "up" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                  </svg>
                 )}
-                {entry.change.direction === 'down' && (
-                  <span className="text-red-500 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                    {entry.change.value}
-                  </span>
+                {entry.change.direction === "down" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
                 )}
-                {entry.change.direction === 'none' && (
-                  <span className="text-neutral-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" />
-                    </svg>
-                  </span>
-                )}
+                <span className={`text-xs ${entry.change.direction === "up" ? "text-green-500" : "text-red-500"}`}>
+                  {entry.change.value}
+                </span>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="p-3 border-t border-neutral-200 flex justify-center">
+        <div className="p-4 border-t border-neutral-200 flex justify-center">
           <button className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center gap-2 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
