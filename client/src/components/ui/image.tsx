@@ -16,10 +16,15 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
       setError(true);
     };
 
+    // Handle @assets alias
+    const imageSrc = src?.startsWith('@assets/') 
+      ? src.replace('@assets/', '/src/assets/')
+      : src;
+
     return (
       <img
         ref={ref}
-        src={error ? fallbackSrc : src}
+        src={error ? fallbackSrc : imageSrc}
         alt={alt}
         onError={handleError}
         className={cn("object-cover", className)}

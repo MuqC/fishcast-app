@@ -11,7 +11,9 @@ import TournamentsPage from "@/pages/tournaments-page";
 import SpotCatchesPage from "@/pages/spot-catches-page";
 import CatchDetailPage from "@/pages/catch-detail-page";
 import ProfilePage from "@/pages/profile-page";
+import SettingsPage from "@/pages/settings-page";
 import { AppProvider } from "@/context/app-context";
+import { ThemeProvider } from "@/context/theme-context";
 
 function Router() {
   return (
@@ -23,6 +25,7 @@ function Router() {
       <Route path="/spots/:id" component={SpotCatchesPage} />
       <Route path="/tournaments" component={TournamentsPage} />
       <Route path="/profile/:username" component={ProfilePage} />
+      <Route path="/settings" component={SettingsPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -31,12 +34,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <Layout>
-          <Router />
-        </Layout>
-        <Toaster />
-      </AppProvider>
+      <ThemeProvider>
+        <AppProvider>
+          <Layout>
+            <Router />
+          </Layout>
+          <Toaster />
+        </AppProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
