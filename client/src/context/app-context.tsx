@@ -3,6 +3,7 @@ import { createContext, useState, useContext, ReactNode } from "react";
 type TournamentsState = {
   tournamentsExpanded: boolean;
   selectedLeague: string | null;
+  showTournamentEntry: boolean;
 };
 
 type AppContextType = {
@@ -11,6 +12,8 @@ type AppContextType = {
   selectLeague: (league: string) => void;
   backToTournaments: () => void;
   backToLeagues: () => void;
+  backToLeaderboard: () => void;
+  showTournamentEntry: () => void;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -19,6 +22,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [tournamentsState, setTournamentsState] = useState<TournamentsState>({
     tournamentsExpanded: false,
     selectedLeague: null,
+    showTournamentEntry: false,
   });
 
   const expandTournaments = () => {
@@ -40,6 +44,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       ...tournamentsState,
       tournamentsExpanded: false,
       selectedLeague: null,
+      showTournamentEntry: false,
     });
   };
 
@@ -47,6 +52,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setTournamentsState({
       ...tournamentsState,
       selectedLeague: null,
+      showTournamentEntry: false,
+    });
+  };
+
+  const backToLeaderboard = () => {
+    setTournamentsState({
+      ...tournamentsState,
+      showTournamentEntry: false,
+    });
+  };
+
+  const showTournamentEntry = () => {
+    setTournamentsState({
+      ...tournamentsState,
+      showTournamentEntry: true,
     });
   };
 
@@ -58,6 +78,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         selectLeague,
         backToTournaments,
         backToLeagues,
+        backToLeaderboard,
+        showTournamentEntry,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useAppContext } from "@/context/app-context";
 import { tournaments, leagues, topAnglers, leaderboardEntries } from "@/lib/data";
 import { Image } from "@/components/ui/image";
+import TournamentEntryPage from "./tournament-entry-page";
 
 export default function TournamentsPage() {
   const { 
@@ -10,7 +11,8 @@ export default function TournamentsPage() {
     expandTournaments, 
     selectLeague, 
     backToTournaments, 
-    backToLeagues 
+    backToLeagues,
+    showTournamentEntry
   } = useAppContext();
 
   const renderTournaments = () => (
@@ -35,7 +37,7 @@ export default function TournamentsPage() {
       
       <h3 className="text-sm font-semibold mb-3 text-neutral-500">Available Tournaments</h3>
       
-      <div className="space-y-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {tournaments.map((tournament) => (
           <Card 
             key={tournament.id} 
@@ -232,7 +234,10 @@ export default function TournamentsPage() {
         </div>
         
         <div className="p-4 border-t border-neutral-200 flex justify-center">
-          <button className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center gap-2 transition-colors">
+          <button 
+            onClick={showTournamentEntry}
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center gap-2 transition-colors"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
@@ -247,7 +252,8 @@ export default function TournamentsPage() {
     <div className="page page-transition">
       {!tournamentsState.tournamentsExpanded && renderTournaments()}
       {tournamentsState.tournamentsExpanded && !tournamentsState.selectedLeague && renderLeagues()}
-      {tournamentsState.selectedLeague && renderLeaderboard()}
+      {tournamentsState.selectedLeague && !tournamentsState.showTournamentEntry && renderLeaderboard()}
+      {tournamentsState.showTournamentEntry && <TournamentEntryPage />}
     </div>
   );
 }
