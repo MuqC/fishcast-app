@@ -12,13 +12,13 @@ export default function BottomNavigation() {
   const [location] = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-200 shadow-lg z-10">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 shadow-lg z-10">
       <div className="max-w-md mx-auto flex justify-around">
         {navItems.map((item) => (
           <Link 
             key={item.path} 
             href={item.path} 
-            className={`flex flex-col items-center p-3 w-1/5 ${location === item.path ? 'text-primary font-semibold' : 'text-neutral-500'}`}
+            className={`flex flex-col items-center p-3 w-1/5 ${location === item.path ? 'text-primary dark:text-primary-400 font-semibold' : 'text-neutral-500 dark:text-neutral-400'}`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {item.icon === "stream" && (

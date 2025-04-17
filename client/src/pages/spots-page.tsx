@@ -20,11 +20,11 @@ export default function SpotsPage() {
 
         <Card className="mb-4">
           <CardContent className="p-3">
-            <div className="relative w-full h-48 bg-neutral-200 rounded-lg mb-3 overflow-hidden">
+            <div className="relative w-full h-48 bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-3 overflow-hidden">
               <img src="src/assets/mapview.png" alt="Map view" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-primary/10"></div>
               <div className="absolute bottom-3 right-3">
-                <button className="bg-white p-2 rounded-full shadow-md text-primary">
+                <button className="bg-white dark:bg-neutral-800 p-2 rounded-full shadow-md text-primary">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -34,11 +34,11 @@ export default function SpotsPage() {
             </div>
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-sm font-medium text-neutral-500">Nearby Spots</p>
+                <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Nearby Spots</p>
               </div>
               <div>
                 <Select defaultValue="all">
-                  <SelectTrigger className="h-7 text-xs bg-neutral-100 border border-neutral-200 rounded">
+                  <SelectTrigger className="h-7 text-xs bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded">
                     <SelectValue placeholder="All Species" />
                   </SelectTrigger>
                   <SelectContent>
@@ -53,23 +53,23 @@ export default function SpotsPage() {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 gap-3">
+        <div className="space-y-3">
           {spots.map((spot) => (
             <Link key={spot.id} href={`/spots/${spot.id}`}>
-              <Card className="overflow-hidden scale-in cursor-pointer hover:border-primary transition-colors">
+              <Card className="overflow-hidden scale-in cursor-pointer hover:border-primary hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
                 <div className="flex">
-                  <div className="w-24 h-24 bg-neutral-200">
+                  <div className="w-24 h-24 bg-neutral-200 dark:bg-neutral-800">
                     <img src={spot.image} alt={spot.name} className="w-full h-full object-cover" />
                   </div>
                   <CardContent className="p-3 flex-1">
-                    <h3 className="font-medium text-sm">{spot.name}</h3>
-                    <p className="text-xs text-neutral-500 mb-1">{spot.location} • {spot.distance} miles</p>
+                    <h3 className="font-medium text-sm dark:text-white">{spot.name}</h3>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-1">{spot.location} • {spot.distance} miles</p>
                     <div className="flex flex-wrap gap-1 mb-1">
                       {spot.species.map((species, index) => (
-                        <span key={index} className="text-xs bg-neutral-100 px-2 py-0.5 rounded-full">{species}</span>
+                        <span key={index} className="text-xs bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full dark:text-neutral-300">{species}</span>
                       ))}
                     </div>
-                    <div className="flex items-center text-xs text-green-700">
+                    <div className="flex items-center text-xs text-green-700 dark:text-green-400">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>

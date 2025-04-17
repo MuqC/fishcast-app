@@ -145,11 +145,7 @@ export const spots = [
     distance: "12",
     species: ["Bass", "Trout", "Pike"],
     catches: 28,
-<<<<<<< Updated upstream
-    image: "@assets/lakemichigan.jpg",
-=======
     image: "/src/assets/lakemichigan.jpg",
->>>>>>> Stashed changes
   },
   {
     id: 2,
@@ -176,11 +172,7 @@ export const spots = [
     distance: "18",
     species: ["Bluegill", "Crappie"],
     catches: 8,
-<<<<<<< Updated upstream
-    image: "@assets/millerspond.jpg",
-=======
     image: "/src/assets/millerspond.jpg",
->>>>>>> Stashed changes
   },
 ];
 
@@ -195,7 +187,7 @@ export const tournaments = [
     location: "Lake Okeechobee, FL",
     entryFee: 250,
     prizePool: 10000,
-    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    image: "/src/assets/fisher.jpg",
     status: "upcoming",
     league: "bass-masters",
   },

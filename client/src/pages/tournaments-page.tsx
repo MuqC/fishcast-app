@@ -22,7 +22,7 @@ export default function TournamentsPage() {
       <div className="mb-6">
         <div className="relative overflow-hidden rounded-xl mb-4">
           <Image 
-            src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+            src="/src/assets/fisher2.jpg" 
             alt="Tournaments banner" 
             className="w-full h-40 object-cover"
           />
@@ -41,7 +41,7 @@ export default function TournamentsPage() {
         {tournaments.map((tournament) => (
           <Card 
             key={tournament.id} 
-            className="overflow-hidden scale-in cursor-pointer hover:border-primary transition-colors"
+            className="overflow-hidden scale-in cursor-pointer hover:border-primary hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
             onClick={() => expandTournaments()}
           >
             <div className="relative">
@@ -88,7 +88,7 @@ export default function TournamentsPage() {
         {leagues.map((league) => (
           <Card 
             key={league.id} 
-            className="p-4 cursor-pointer hover:border-primary transition-colors scale-in"
+            className="p-4 cursor-pointer hover:border-primary hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors scale-in"
             onClick={() => selectLeague(league.name)}
           >
             <div className="flex justify-between items-start mb-4">
@@ -203,7 +203,7 @@ export default function TournamentsPage() {
         
         <div className="divide-y divide-neutral-200">
           {leaderboardEntries.map((entry) => (
-            <div key={entry.position} className="flex items-center p-4 hover:bg-neutral-50 transition-colors">
+            <div key={entry.position} className="flex items-center p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
               <div className="w-8 text-center mr-3">
                 <span className="font-semibold text-sm">{entry.position}</span>
               </div>

@@ -169,7 +169,7 @@ export default function SpotCatchesPage() {
 
         <div className="space-y-3">
           {spotCatches.map((catchItem) => (
-            <Card key={catchItem.id} className="overflow-hidden scale-in">
+            <Card key={catchItem.id} className="overflow-hidden scale-in hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
               <div className="relative">
                 <Image 
                   src={catchItem.image} 

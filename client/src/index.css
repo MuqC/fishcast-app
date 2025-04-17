@@ -8,7 +8,15 @@
   }
 
   body {
-    @apply font-sans antialiased bg-neutral-100 text-foreground;
+    @apply font-sans antialiased bg-neutral-100 dark:bg-neutral-950 text-foreground;
+  }
+
+  .page {
+    @apply bg-neutral-100 dark:bg-neutral-950;
+  }
+
+  .card {
+    @apply bg-white dark:bg-neutral-800;
   }
 }
 

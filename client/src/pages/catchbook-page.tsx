@@ -51,20 +51,20 @@ export default function CatchbookPage() {
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              <div className="bg-neutral-100 rounded-lg p-2 text-center">
-                <p className="text-xs text-neutral-500">Largest</p>
-                <p className="font-medium">{seasonStats.largest.weight} lbs</p>
-                <p className="text-xs">{seasonStats.largest.type}</p>
+              <div className="bg-neutral-100 dark:bg-neutral-950 rounded-lg p-2 text-center">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Largest</p>
+                <p className="font-medium dark:text-white">{seasonStats.largest.weight} lbs</p>
+                <p className="text-xs dark:text-neutral-300">{seasonStats.largest.type}</p>
               </div>
-              <div className="bg-neutral-100 rounded-lg p-2 text-center">
-                <p className="text-xs text-neutral-500">Total Weight</p>
-                <p className="font-medium">{seasonStats.totalWeight} lbs</p>
-                <p className="text-xs">{seasonStats.totalFish} fish</p>
+              <div className="bg-neutral-100 dark:bg-neutral-950 rounded-lg p-2 text-center">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Total Weight</p>
+                <p className="font-medium dark:text-white">{seasonStats.totalWeight} lbs</p>
+                <p className="text-xs dark:text-neutral-300">{seasonStats.totalFish} fish</p>
               </div>
-              <div className="bg-neutral-100 rounded-lg p-2 text-center hidden sm:block">
-                <p className="text-xs text-neutral-500">Top Location</p>
-                <p className="font-medium">{seasonStats.topLocation.name}</p>
-                <p className="text-xs">{seasonStats.topLocation.catches} catches</p>
+              <div className="bg-neutral-100 dark:bg-neutral-950 rounded-lg p-2 text-center hidden sm:block">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Top Location</p>
+                <p className="font-medium dark:text-white">{seasonStats.topLocation.name}</p>
+                <p className="text-xs dark:text-neutral-300">{seasonStats.topLocation.catches} catches</p>
               </div>
             </div>
           </CardContent>
@@ -75,7 +75,7 @@ export default function CatchbookPage() {
         <div className="space-y-3">
           {catches.map((catchItem) => (
             <Link key={catchItem.id} href={`/catches/${catchItem.id}`}>
-              <Card className="cursor-pointer hover:bg-neutral-50 transition-colors">
+              <Card className="cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
                 <CardContent className="p-4">
                   <div className="flex gap-4">
                     <div className="relative w-20 h-20 flex-shrink-0">
