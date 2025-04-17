@@ -145,7 +145,11 @@ export const spots = [
     distance: "12",
     species: ["Bass", "Trout", "Pike"],
     catches: 28,
+<<<<<<< Updated upstream
     image: "@assets/lakemichigan.jpg",
+=======
+    image: "/src/assets/lakemichigan.jpg",
+>>>>>>> Stashed changes
   },
   {
     id: 2,
@@ -172,7 +176,11 @@ export const spots = [
     distance: "18",
     species: ["Bluegill", "Crappie"],
     catches: 8,
+<<<<<<< Updated upstream
     image: "@assets/millerspond.jpg",
+=======
+    image: "/src/assets/millerspond.jpg",
+>>>>>>> Stashed changes
   },
 ];
 
@@ -204,8 +212,7 @@ export const tournaments = [
     status: "upcoming",
     league: "river-kings",
   },
-  {
-    id: "3",
+  {   id: "3",
     name: "Trout Champions",
     description: "Catch & Release Trout Series",
     participants: 189,
