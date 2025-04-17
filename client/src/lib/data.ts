@@ -2,46 +2,82 @@
 export const feedItems = [
   {
     id: 1,
+    title: "Big Bass Catch",
+    description: "Caught this beauty at Lake Michigan!",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
+    location: "Lake Michigan",
+    likes: 24,
+    comments: 8,
+    timeAgo: "2 hours ago",
     user: {
       name: "Mike Richards",
-      avatar: "https://images.unsplash.com/photo-1607173618657-e9fa9bcbd164?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80",
-    },
-    timeAgo: "2 hours ago",
-    location: "Lake Michigan",
-    image: "https://images.unsplash.com/photo-1545569324-a3db9c12889d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    title: "Caught this 4.5lb Bass today!",
-    description: "Perfect weather and calm waters made for an amazing day fishing.",
-    likes: 24,
-    comments: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+      isPrivate: false,
+      stats: {
+        catches: 156,
+        followers: 234,
+        following: 89
+      },
+      awards: [
+        {
+          id: 1,
+          title: "Biggest Bass",
+          description: "Largest bass caught in 2023",
+          image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
+          date: "2023-12-15"
+        },
+        {
+          id: 2,
+          title: "Tournament Champion",
+          description: "1st place in Lake Michigan Bass Classic",
+          image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
+          date: "2023-08-20"
+        }
+      ]
+    }
   },
   {
     id: 2,
+    title: "Trout Fishing Success",
+    description: "Perfect day for trout fishing!",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
+    location: "Rocky River",
+    likes: 18,
+    comments: 5,
+    timeAgo: "4 hours ago",
     user: {
       name: "Sarah Thompson",
-      avatar: "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80",
-    },
-    timeAgo: "Yesterday",
-    location: "Clearwater Lake",
-    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    title: "First trout of the season!",
-    description: "Didn't expect to catch anything today but got lucky with this beauty.",
-    likes: 42,
-    comments: 8,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+      isPrivate: true,
+      stats: {
+        catches: 89,
+        followers: 156,
+        following: 45
+      },
+      awards: []
+    }
   },
   {
     id: 3,
+    title: "Monster Pike Catch",
+    description: "Caught this massive pike at Cedar Creek!",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
+    location: "Cedar Creek",
+    likes: 32,
+    comments: 12,
+    timeAgo: "1 day ago",
     user: {
       name: "David Carter",
-      avatar: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80",
-    },
-    timeAgo: "2 days ago",
-    location: "Cedar Creek",
-    image: "https://images.unsplash.com/photo-1612640579020-ef3bd234a6e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    title: "Monster pike on the new lure!",
-    description: "This new silver spoon is absolutely killing it. Highly recommend!",
-    likes: 56,
-    comments: 12,
-  },
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      isPrivate: false,
+      stats: {
+        catches: 98,
+        followers: 187,
+        following: 67
+      },
+      awards: []
+    }
+  }
 ];
 
 // Catchbook Data
@@ -69,7 +105,7 @@ export const catches = [
     length: "19.5",
     location: "Lake Michigan",
     date: "June 12, 2023",
-    image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
   },
   {
     id: 2,
@@ -78,7 +114,7 @@ export const catches = [
     length: "16",
     location: "Clearwater Lake",
     date: "June 5, 2023",
-    image: "https://images.unsplash.com/photo-1565280654386-466927d31313?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
   },
   {
     id: 3,
@@ -87,7 +123,7 @@ export const catches = [
     length: "31",
     location: "Cedar Creek",
     date: "May 28, 2023",
-    image: "https://images.unsplash.com/photo-1587129883461-a744351b60d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
   },
   {
     id: 4,
@@ -96,7 +132,7 @@ export const catches = [
     length: "8",
     location: "Miller's Pond",
     date: "May 15, 2023",
-    image: "https://images.unsplash.com/photo-1592492152545-9695d3f473f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8",
   },
 ];
 
@@ -109,7 +145,7 @@ export const spots = [
     distance: "12",
     species: ["Bass", "Trout", "Pike"],
     catches: 28,
-    image: "https://images.unsplash.com/photo-1621956838481-fb7133d3bba7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    image: "/src/assets/lakemichigan.jpg",
   },
   {
     id: 2,
@@ -136,22 +172,40 @@ export const spots = [
     distance: "18",
     species: ["Bluegill", "Crappie"],
     catches: 8,
-    image: "https://images.unsplash.com/photo-1520456217122-1559af3fdf9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    image: "/src/assets/millerspond.jpg",
   },
 ];
 
 // Tournaments Data
 export const tournaments = [
   {
-    id: 1,
-    name: "Bass Masters Cup",
-    description: "Freshwater Bass Competition",
-    participants: 256,
-    status: "LIVE",
-    image: "https://images.unsplash.com/photo-1509961708744-522c3b577754?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    id: "1",
+    name: "Bass Masters Classic",
+    description: "The premier bass fishing tournament series",
+    startDate: "2024-06-15",
+    endDate: "2024-06-17",
+    location: "Lake Okeechobee, FL",
+    entryFee: 250,
+    prizePool: 10000,
+    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    status: "upcoming",
+    league: "bass-masters",
   },
   {
-    id: 2,
+    id: "2",
+    name: "River King Cup",
+    description: "Championship series for river fishing enthusiasts",
+    startDate: "2024-07-20",
+    endDate: "2024-07-22",
+    location: "Mississippi River, MN",
+    entryFee: 200,
+    prizePool: 8000,
+    image: "https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    status: "upcoming",
+    league: "river-kings",
+  },
+  {
+    id: "3",
     name: "Trout Champions",
     description: "Catch & Release Trout Series",
     participants: 189,
@@ -165,14 +219,6 @@ export const tournaments = [
     startDate: "July 12",
     status: "UPCOMING",
     image: "https://images.unsplash.com/photo-1516676839530-135a545cce02?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 4,
-    name: "River Kings",
-    description: "Catfish & Pike Competition",
-    startDate: "July 20",
-    status: "UPCOMING",
-    image: "https://images.unsplash.com/photo-1563841249759-c9b662a078b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -214,19 +260,19 @@ export const topAnglers = [
     position: 1,
     name: "Mike R.",
     weight: "36.8",
-    image: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
   },
   {
     position: 2,
     name: "David C.",
     weight: "32.4",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
   },
   {
     position: 3,
     name: "Sarah T.",
     weight: "29.7",
-    image: "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
   },
 ];
 

@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { catches, seasonStats } from "@/lib/data";
+import { Link } from "wouter";
+import { Image } from "@/components/ui/image";
 
 export default function CatchbookPage() {
   return (
@@ -46,31 +48,39 @@ export default function CatchbookPage() {
         </Card>
 
         <h3 className="text-sm font-semibold mb-2 text-neutral-500">Recent Catches</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="space-y-4">
           {catches.map((catchItem) => (
-            <Card key={catchItem.id} className="overflow-hidden scale-in">
-              <div className="relative">
-                <img 
-                  src={catchItem.image} 
-                  alt={catchItem.type} 
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                  <p className="text-white font-medium">{catchItem.type}</p>
-                  <p className="text-white/80 text-xs">{catchItem.weight} lbs • {catchItem.length} inches</p>
-                </div>
-              </div>
-              <CardContent className="p-2 flex justify-between items-center">
-                <p className="text-xs text-neutral-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  {catchItem.location}
-                </p>
-                <p className="text-xs text-neutral-500">{catchItem.date}</p>
-              </CardContent>
-            </Card>
+            <Link key={catchItem.id} href={`/catches/${catchItem.id}`}>
+              <Card className="cursor-pointer hover:bg-neutral-50 transition-colors">
+                <CardContent className="p-4">
+                  <div className="flex gap-4">
+                    <div className="relative w-20 h-20 flex-shrink-0">
+                      <Image 
+                        src={catchItem.image} 
+                        alt={catchItem.type}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold">{catchItem.type}</h3>
+                      <p className="text-sm text-neutral-500">{catchItem.location}</p>
+                      <div className="flex gap-2 mt-1">
+                        <span className="text-sm text-neutral-500">{catchItem.weight} lbs</span>
+                        <span className="text-sm text-neutral-500">•</span>
+                        <span className="text-sm text-neutral-500">{catchItem.length} inches</span>
+                        <span className="text-sm text-neutral-500">•</span>
+                        <span className="text-sm text-neutral-500">{catchItem.date}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

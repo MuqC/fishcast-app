@@ -8,6 +8,9 @@ import FeedPage from "@/pages/feed-page";
 import CatchbookPage from "@/pages/catchbook-page";
 import SpotsPage from "@/pages/spots-page";
 import TournamentsPage from "@/pages/tournaments-page";
+import SpotCatchesPage from "@/pages/spot-catches-page";
+import CatchDetailPage from "@/pages/catch-detail-page";
+import ProfilePage from "@/pages/profile-page";
 import { AppProvider } from "@/context/app-context";
 
 function Router() {
@@ -15,8 +18,11 @@ function Router() {
     <Switch>
       <Route path="/" component={FeedPage} />
       <Route path="/catchbook" component={CatchbookPage} />
+      <Route path="/catches/:id" component={CatchDetailPage} />
       <Route path="/spots" component={SpotsPage} />
+      <Route path="/spots/:id" component={SpotCatchesPage} />
       <Route path="/tournaments" component={TournamentsPage} />
+      <Route path="/profile/:username" component={ProfilePage} />
       <Route component={NotFound} />
     </Switch>
   );

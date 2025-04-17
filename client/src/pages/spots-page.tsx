@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { spots } from "@/lib/data";
+import { Link } from "wouter";
 
 export default function SpotsPage() {
   return (
@@ -9,7 +10,7 @@ export default function SpotsPage() {
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-neutral-500">Fishing Spots</h2>
-          <Button variant="default" className="rounded-full flex items-center gap-1 bg-primary hover:bg-primary/90 text-white px-3 py-1.5 h-auto text-sm">
+          <Button variant="default" className="rounded-full flex items-center gap-1 bg-primary hover:bg-primary/90 text-white px-3 py-1.5 h-auto text-sm">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
@@ -20,7 +21,7 @@ export default function SpotsPage() {
         <Card className="mb-4">
           <CardContent className="p-3">
             <div className="relative w-full h-48 bg-neutral-200 rounded-lg mb-3 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1612378893904-2ccc0efc5bf3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Map view" className="w-full h-full object-cover" />
+              <img src="src/assets/mapview.png" alt="Map view" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-primary/10"></div>
               <div className="absolute bottom-3 right-3">
                 <button className="bg-white p-2 rounded-full shadow-md text-primary">
@@ -54,28 +55,30 @@ export default function SpotsPage() {
 
         <div className="grid grid-cols-1 gap-3">
           {spots.map((spot) => (
-            <Card key={spot.id} className="overflow-hidden scale-in">
-              <div className="flex">
-                <div className="w-24 h-24 bg-neutral-200">
-                  <img src={spot.image} alt={spot.name} className="w-full h-full object-cover" />
+            <Link key={spot.id} href={`/spots/${spot.id}`}>
+              <Card className="overflow-hidden scale-in cursor-pointer hover:border-primary transition-colors">
+                <div className="flex">
+                  <div className="w-24 h-24 bg-neutral-200">
+                    <img src={spot.image} alt={spot.name} className="w-full h-full object-cover" />
+                  </div>
+                  <CardContent className="p-3 flex-1">
+                    <h3 className="font-medium text-sm">{spot.name}</h3>
+                    <p className="text-xs text-neutral-500 mb-1">{spot.location} • {spot.distance} miles</p>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                      {spot.species.map((species, index) => (
+                        <span key={index} className="text-xs bg-neutral-100 px-2 py-0.5 rounded-full">{species}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center text-xs text-green-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                      {spot.catches} catches this week
+                    </div>
+                  </CardContent>
                 </div>
-                <CardContent className="p-3 flex-1">
-                  <h3 className="font-medium text-sm">{spot.name}</h3>
-                  <p className="text-xs text-neutral-500 mb-1">{spot.location} • {spot.distance} miles</p>
-                  <div className="flex flex-wrap gap-1 mb-1">
-                    {spot.species.map((species, index) => (
-                      <span key={index} className="text-xs bg-neutral-100 px-2 py-0.5 rounded-full">{species}</span>
-                    ))}
-                  </div>
-                  <div className="flex items-center text-xs text-green-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                    {spot.catches} catches this week
-                  </div>
-                </CardContent>
-              </div>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
